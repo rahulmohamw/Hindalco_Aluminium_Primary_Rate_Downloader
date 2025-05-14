@@ -49,14 +49,25 @@ def create_directory_structure(date):
 
 def get_pdf_url(date):
     """Generate the URL for the specified date."""
-    url = f"https://www.hindalco.com/Upload/PDF/primary-ready-reckoner-{date.day:02d}-{date.strftime('%b').lower()}-{date.year}.pdf"
+    # Format: dd-mmm-yyyy (e.g., 14-may-2025)
+    formatted_date = f"{date.day:02d}-{date.strftime('%b').lower()}-{date.year}"
+    url = f"https://www.hindalco.com/Upload/PDF/primary-ready-reckoner-{formatted_date}.pdf"
+    logger.info(f"Generated URL: {url}")
     return url
 
 
 def download_pdf(url, save_path):
     """Download the PDF file from the URL."""
     try:
-        response = requests.get(url, timeout=30)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",
+            "Accept": "application/pdf,*/*",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": "https://www.hindalco.com/",
+            "Connection": "keep-alive"
+        }
+        
+        response = requests.get(url, headers=headers, timeout=30)
         response.raise_for_status()
         
         with open(save_path, 'wb') as f:
@@ -198,6 +209,7 @@ def main():
     
     # Generate PDF URL for today
     url = get_pdf_url(today)
+    logger.info(f"Attempting to download from URL: {url}")
     
     # Create file path
     file_name = f"primary-ready-reckoner-{today.day:02d}-{today.strftime('%b').lower()}-{today.year}.pdf"
@@ -211,8 +223,23 @@ def main():
         update_csv_files(product_rates)
         return
     
-    # Download the PDF
+    # Try with current date
     success = download_pdf(url, save_path)
+    
+    # If download fails, try with yesterday's date as fallback
+    if not success:
+        yesterday = today - timedelta(days=1)
+        yesterday_url = get_pdf_url(yesterday)
+        logger.info(f"First attempt failed. Trying yesterday's URL: {yesterday_url}")
+        
+        yesterday_file_name = f"primary-ready-reckoner-{yesterday.day:02d}-{yesterday.strftime('%b').lower()}-{yesterday.year}.pdf"
+        yesterday_save_path = os.path.join(save_dir, yesterday_file_name)
+        
+        if not os.path.exists(yesterday_save_path):
+            success = download_pdf(yesterday_url, yesterday_save_path)
+            if success:
+                save_path = yesterday_save_path
+                today = yesterday  # Update date for processing
     
     if success:
         # Wait a bit to ensure the file is fully written
@@ -224,7 +251,15 @@ def main():
         # Update CSV files
         update_csv_files(product_rates)
     else:
-        logger.warning("PDF download failed. No updates to CSV files.")
+        logger.warning("PDF download failed for both current and previous day. No updates to CSV files.")
+        
+        # Try to list some files in the directory to check path
+        try:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            logger.info(f"Base directory: {base_dir}")
+            logger.info(f"Current directory contents: {os.listdir('.')}")
+        except Exception as e:
+            logger.error(f"Error listing directory: {e}")
 
 
 if __name__ == "__main__":
