@@ -30,7 +30,7 @@ jobs:
           pip install requests pandas tabula-py PyPDF2
           
       - name: Run download script
-        run: python main.py
+        run: python main_py.py
         
       - name: Configure Git
         run: |
