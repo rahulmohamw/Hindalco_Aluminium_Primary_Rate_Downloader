@@ -1,35 +1,4 @@
-def manual_extract_tables(pdf_text):
-    """
-    Manual extraction of tabular data when tabula fails.
-    This is a fallback method to try to find pricing information.
-    """
-    logger.info("Attempting manual table extraction from text")
-    
-    lines = pdf_text.split('\n')
-    potential_price_lines = []
-    
-    # Look for lines that might contain product and price information
-    for line in lines:
-        if re.search(r'(?:₹|Rs\.?|INR)\s*[\d,]+', line):
-            potential_price_lines.append(line)
-            logger.info(f"Potential price line: {line}")
-    
-    # Extract product-price pairs from these lines
-    product_rates = {}
-    for line in potential_price_lines:
-        for product in PRODUCTS:
-            product_name = re.sub(r'^\d+\.\s+', '', product)
-            product_keywords = [kw for kw in product_name.split() if len(kw) > 3]
-            
-            # Check if any keywords from product name appear in the line
-            if any(keyword.lower() in line.lower() for keyword in product_keywords):
-                price_match = re.search(r'(?:₹|Rs\.?|INR)\s*([\d,]+)', line)
-                if price_match:
-                    price = price_match.group(1).replace(',', '')
-                    product_rates[product] = int(price)
-                    logger.info(f"Manually extracted price for {product}: {price}")
-    
-    return product_ratesimport os
+import os
 import re
 import sys
 import logging
@@ -64,6 +33,40 @@ PRODUCTS = [
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOWNLOADS_DIR = os.path.join(BASE_DIR, 'downloads')
 CSV_DIR = os.path.join(BASE_DIR, 'csv')
+
+
+def manual_extract_tables(pdf_text):
+    """
+    Manual extraction of tabular data when tabula fails.
+    This is a fallback method to try to find pricing information.
+    """
+    logger.info("Attempting manual table extraction from text")
+    
+    lines = pdf_text.split('\n')
+    potential_price_lines = []
+    
+    # Look for lines that might contain product and price information
+    for line in lines:
+        if re.search(r'(?:₹|Rs\.?|INR)\s*[\d,]+', line):
+            potential_price_lines.append(line)
+            logger.info(f"Potential price line: {line}")
+    
+    # Extract product-price pairs from these lines
+    product_rates = {}
+    for line in potential_price_lines:
+        for product in PRODUCTS:
+            product_name = re.sub(r'^\d+\.\s+', '', product)
+            product_keywords = [kw for kw in product_name.split() if len(kw) > 3]
+            
+            # Check if any keywords from product name appear in the line
+            if any(keyword.lower() in line.lower() for keyword in product_keywords):
+                price_match = re.search(r'(?:₹|Rs\.?|INR)\s*([\d,]+)', line)
+                if price_match:
+                    price = price_match.group(1).replace(',', '')
+                    product_rates[product] = int(price)
+                    logger.info(f"Manually extracted price for {product}: {price}")
+    
+    return product_rates
 
 
 def create_directory_structure(date):
