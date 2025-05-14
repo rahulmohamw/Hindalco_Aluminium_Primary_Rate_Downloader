@@ -24,8 +24,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          # Install Java (required for tabula-py)
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jre
           pip install requests pandas tabula-py PyPDF2
-          pip install openjdk-11-jre-headless  # Required for tabula
           
       - name: Run download script
         run: python main.py
