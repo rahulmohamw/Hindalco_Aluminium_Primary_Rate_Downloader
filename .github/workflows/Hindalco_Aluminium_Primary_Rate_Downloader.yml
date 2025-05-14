@@ -8,6 +8,10 @@ on:
   # Enable manual trigger
   workflow_dispatch:
 
+# Important: Add these permissions
+permissions:
+  contents: write
+
 jobs:
   download-and-process:
     runs-on: ubuntu-latest
