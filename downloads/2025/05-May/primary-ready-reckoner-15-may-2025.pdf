@@ -1,0 +1,1007 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <link async href="/favicon.ico" rel="shortcut icon" />
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+
+    <!-- Included CSS -->
+   
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="/assets/css/header-footer.css" />
+    <link rel="stylesheet" href="/assets/css/search-header.css" />
+    <link rel="stylesheet" href="/assets/css/page-loader.css" />
+
+    <!-- Included CSS -->
+
+    <link rel="stylesheet" href="/assets/css/bootstrap-datepicker.css" />
+
+    <!-- Included CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/media.css" />
+
+    
+
+    <!-- Common modernizr Js -->
+    <script type="text/javascript" src="/assets/js/modernizr-custom.js"></script>
+
+
+</head>
+
+
+<body>
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TWZTL3ZP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <section id="page-container">
+        <!-- Header -->
+        
+
+
+
+
+
+<header class="page__header page-header">
+    <div class="centering-wrap page-header__centering header-container">
+        <div class="page-header__logowrap">
+                    <a class="logo" href="/">
+                        <picture class="logo-picture">
+                            <source data-srcset="/Upload/Images/thumbnail/logo.webp" srcset="/Upload/Images/thumbnail/logo.webp" type="image/webp">
+                            <img data-src="/Upload/Images/thumbnail/logo.webp" src="/Upload/Images/thumbnail/logo.webp" class="img-fluid lazyload" alt="Hindalco Industries Limited" title="Hindalco Industries Limited">
+                        </picture>
+                    </a>
+
+
+        </div>
+        <div class="page-header__navwrap">
+            <input type="checkbox" class="nav__toggle" id="nav__toggle"> <label class="nav__togglelbl" for="nav__toggle"> <span class="label-invisible">Toggle Navs</span> </label>
+
+            <div class="page-header__navwrap-inner">
+                <!-- TOP NAVIGATION -->
+                <nav class="main-nav header-nav topheader-nav__item ">
+                    <ul class="header-nav__list main-nav__list main-nav__list--lvl1">
+
+
+                                <li class="main-nav__item main-nav__item--parent d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block">
+                                    <a class="main-nav__link parent-active-link" href="/work-with-us"><span><i class="main-nav__text main-nav__text--lv12">Work with us</i></span></a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-media">
+                                    <label class="main-nav__openlbl" for="toggle-level-media"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-media"> <span>Back</span> </label>
+
+
+                                    <ul class="main-nav__list main-nav__list--lvl2 topdropmenu">
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Life @ Hindalco" href="/work-with-us/life-at-hindalco" target="_self"><span><i class="main-nav__text main-nav__text--lvl2">Life @ Hindalco</i></span></a> </li>
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Diversity" href="/work-with-us/diversity" target="_self"><span><i class="main-nav__text main-nav__text--lvl2">Diversity</i></span></a> </li>
+                                            <li class="main-nav__item"><a class="main-nav__link" title="People Stories" href="/work-with-us/people-stories" target="_self"><span><i class="main-nav__text main-nav__text--lvl2">People Stories</i></span></a> </li>
+                                    </ul>
+
+                                </li>
+                                <li class="main-nav__item main-nav__item--parent d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block">
+                                    <a class="main-nav__link parent-active-link" href="/media"><span><i class="main-nav__text main-nav__text--lv12">Media</i></span></a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-media">
+                                    <label class="main-nav__openlbl" for="toggle-level-media"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-media"> <span>Back</span> </label>
+
+
+                                    <ul class="main-nav__list main-nav__list--lvl2 topdropmenu">
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Press release" href="/media/press-releases" target="_self"><span><i class="main-nav__text main-nav__text--lvl2">Press release</i></span></a> </li>
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Stories" href="/media/stories" target="_self"><span><i class="main-nav__text main-nav__text--lvl2">Stories</i></span></a> </li>
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Media kit" href="/media/media-kit" target="_self"><span><i class="main-nav__text main-nav__text--lvl2">Media kit</i></span></a> </li>
+                                    </ul>
+
+                                </li>
+                                <li class="main-nav__item  d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block">
+                                    <a class="main-nav__link" href="http://crm.hindalco.com:8010/OA_HTML/hilcrm/login.jsp" target="_blank"><span><i class="main-nav__text main-nav__text--lv12">CRM</i></span></a>
+                                </li>
+                                <li class="main-nav__item  d-none d-sm-none d-md-none d-lg-block d-xl-block d-xxl-block">
+                                    <a class="main-nav__link" href="http://crm.hindalco.com:8010/OA_HTML/hilsrm/login.jsp" target="_blank"><span><i class="main-nav__text main-nav__text--lv12">SRM</i></span></a>
+                                </li>
+                    </ul>
+                </nav>
+                <!-- TOP NAVIGATION END -->
+
+                <!--Main NAVIGATION-->
+                <nav class="main-nav main-navigation-wrapper" id="main-nav--root">
+                    <ul class="main-nav__list main-nav__list--lvl1">
+
+
+                                <li class="main-nav__item main-nav__item--parent aboutus_main-nav_item">
+                                    <a class="main-nav__link parent-active-link" title="" href="/about-us">
+                                        <span><i class="main-nav__text main-nav__text--lvl1">About us</i></span>
+                                    </a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-About us">
+                                    <label class="main-nav__openlbl" for="toggle-level-About us"><span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-About us"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+
+                                        <li class="main-nav__item--teaser"><a href="/about-us"><h3>About us</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>About us</span> </li>
+
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us"><span class="main-nav__text main-nav__text--lv12">Overview</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us/vision-mission-and-values"><span class="main-nav__text main-nav__text--lv12">Vision, Mission and Values</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us/manufacturing"><span class="main-nav__text main-nav__text--lv12">Manufacturing</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us/operations"><span class="main-nav__text main-nav__text--lv12">Operations</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us/innovation"><span class="main-nav__text main-nav__text--lv12">Innovation</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us/leadership"><span class="main-nav__text main-nav__text--lv12">Leadership</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us/legacy"><span class="main-nav__text main-nav__text--lv12">Legacy</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us/awards-accreditations"><span class="main-nav__text main-nav__text--lv12">Awards and Accreditations</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/about-us/certifications"><span class="main-nav__text main-nav__text--lv12">Certifications</span></a></li>
+
+
+
+                                        <div class="menu-bg">
+                                            <figure class="figure">
+                                                <div class="fig-picture">
+                                                    <picture class="m-picture ">
+                                                            <source data-srcset="/Upload/Images/thumbnail/thumbnail-about-us.webp" srcset="/Upload/Images/thumbnail/thumbnail-about-us.webp" type="image/webp">
+                                                            <img data-src="/Upload/Images/thumbnail/thumbnail-about-us.webp" src="/Upload/Images/thumbnail/thumbnail-about-us.webp" class="img-fluid lazyloaded" alt="Hindalco is a global leader in aluminium and copper production, with a rapidly growing presence in the downstream value-added segment." title="Hindalco is a global leader in aluminium and copper production, with a rapidly growing presence in the downstream value-added segment.">
+                                                    </picture>
+                                                </div>
+
+                                                <figcaption class="figure-caption">
+                                                    <div class="menu-bg-txt">
+                                                        <a href="/about-us">
+Hindalco is a global leader in aluminium and copper production, with a rapidly growing presence in the downstream value-added segment.                                                        </a>
+                                                    </div>
+                                                    <span class="arrowHalf"><img src="/assets/images/right-arrow-svg-white.svg"></span>
+                                                </figcaption>
+
+                                                <a href="/about-us" class="stretched-link"></a>
+
+                                            </figure>
+                                        </div>
+
+
+
+                                    </ul>
+
+                                </li>
+                                <li class="main-nav__item main-nav__item--parent businesses_main-nav_item">
+                                    <a class="main-nav__link parent-active-link" title="" href="/businesses">
+                                        <span><i class="main-nav__text main-nav__text--lvl1">Businesses</i></span>
+                                    </a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-Businesses">
+                                    <label class="main-nav__openlbl" for="toggle-level-Businesses"><span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-Businesses"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+
+                                        <li class="main-nav__item--teaser"><a href="/businesses"><h3>Businesses</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Businesses</span> </li>
+
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/businesses"><span class="main-nav__text main-nav__text--lv12">Overview</span></a></li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-with-link" href="/businesses/aluminium"><span><i class="main-nav__text main-nav__text--lvl2">Aluminium</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Aluminium">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Aluminium"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Aluminium"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Aluminium</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Overview" href="/businesses/aluminium"><span><i class="main-nav__text main-nav__text--lvl3">Overview</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Primary Aluminium" href="/businesses/aluminium/primary-aluminium"><span><i class="main-nav__text main-nav__text--lvl3">Primary Aluminium</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Flat Rolled Products" href="/businesses/aluminium/flat-rolled-products"><span><i class="main-nav__text main-nav__text--lvl3">Flat Rolled Products</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Extrusions" href="/businesses/aluminium/extrusions"><span><i class="main-nav__text main-nav__text--lvl3">Extrusions</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Foils" href="/businesses/aluminium/foil-and-packaging"><span><i class="main-nav__text main-nav__text--lvl3">Foils</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-with-link" href="/businesses/copper"><span><i class="main-nav__text main-nav__text--lvl2">Copper</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Copper">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Copper"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Copper"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Copper</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Overview" href="/businesses/copper"><span><i class="main-nav__text main-nav__text--lvl3">Overview</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Rods" href="/businesses/copper/rods"><span><i class="main-nav__text main-nav__text--lvl3">Rods</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Cathodes" href="/businesses/copper/cathodes"><span><i class="main-nav__text main-nav__text--lvl3">Cathodes</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Precious metals" href="/businesses/copper/precious-metals"><span><i class="main-nav__text main-nav__text--lvl3">Precious metals</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Inner Groove Tubes" href="/businesses/copper/copper-igt-tubes"><span><i class="main-nav__text main-nav__text--lvl3">Inner Groove Tubes</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Recycling" href="/businesses/copper/recycled-rods"><span><i class="main-nav__text main-nav__text--lvl3">Recycling</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Wire Rods" href="/businesses/copper/wire-rods"><span><i class="main-nav__text main-nav__text--lvl3">Wire Rods</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Alloy rods" href="/businesses/copper/alloy-rods"><span><i class="main-nav__text main-nav__text--lvl3">Alloy rods</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-with-link" href="/businesses/specialty-alumina"><span><i class="main-nav__text main-nav__text--lvl2">Specialty Alumina</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Specialty Alumina">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Specialty Alumina"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Specialty Alumina"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Specialty Alumina</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Overview" href="/businesses/specialty-alumina"><span><i class="main-nav__text main-nav__text--lvl3">Overview</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Refractory Solutions" href="/businesses/specialty-alumina/refractory-solutions"><span><i class="main-nav__text main-nav__text--lvl3">Refractory Solutions</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Ceramic Solutions" href="/businesses/specialty-alumina/ceramic-solutions"><span><i class="main-nav__text main-nav__text--lvl3">Ceramic Solutions</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Polishing Solutions" href="/businesses/specialty-alumina/polishing-solutions"><span><i class="main-nav__text main-nav__text--lvl3">Polishing Solutions</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Battery Solutions" href="/businesses/specialty-alumina/battery-solutions"><span><i class="main-nav__text main-nav__text--lvl3">Battery Solutions</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Water Treatment Solutions" href="/businesses/aspecialty-alumina/water-treatment-solutions"><span><i class="main-nav__text main-nav__text--lvl3">Water Treatment Solutions</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Flame Retardant Solutions" href="/businesses/specialty-alumina/flame-retardant-solutions"><span><i class="main-nav__text main-nav__text--lvl3">Flame Retardant Solutions</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+
+
+
+                                        <div class="menu-bg">
+                                            <figure class="figure">
+                                                <div class="fig-picture">
+                                                    <picture class="m-picture ">
+                                                            <source data-srcset="/Upload/Images/thumbnail/thumbnail-business.webp" srcset="/Upload/Images/thumbnail/thumbnail-business.webp" type="image/webp">
+                                                            <img data-src="/Upload/Images/thumbnail/thumbnail-business.webp" src="/Upload/Images/thumbnail/thumbnail-business.webp" class="img-fluid lazyloaded" alt="Hindalco operates within three primary business verticals - aluminium, copper, and chemicals." title="Hindalco operates within three primary business verticals - aluminium, copper, and chemicals.">
+                                                    </picture>
+                                                </div>
+
+                                                <figcaption class="figure-caption">
+                                                    <div class="menu-bg-txt">
+                                                        <a href="/businesses">
+Hindalco operates within three primary business verticals - aluminium, copper, and chemicals.                                                        </a>
+                                                    </div>
+                                                    <span class="arrowHalf"><img src="/assets/images/right-arrow-svg-white.svg"></span>
+                                                </figcaption>
+
+                                                <a href="/businesses" class="stretched-link"></a>
+
+                                            </figure>
+                                        </div>
+
+
+
+                                    </ul>
+
+                                </li>
+                                <li class="main-nav__item main-nav__item--parent industriesweserve_main-nav_item">
+                                    <a class="main-nav__link parent-active-link" title="" href="/industries">
+                                        <span><i class="main-nav__text main-nav__text--lvl1">Industries We Serve</i></span>
+                                    </a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-Industries We Serve">
+                                    <label class="main-nav__openlbl" for="toggle-level-Industries We Serve"><span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-Industries We Serve"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+
+                                        <li class="main-nav__item--teaser"><a href="/industries"><h3>Industries We Serve</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Industries We Serve</span> </li>
+
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries"><span class="main-nav__text main-nav__text--lv12">Overview</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/building-and-construction"><span class="main-nav__text main-nav__text--lv12">Building and Construction Solutions</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/batteries-and-renewable-energy"><span class="main-nav__text main-nav__text--lv12">Battery and Renewable Energy Solutions</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/commercial-transport"><span class="main-nav__text main-nav__text--lv12">Commercial Transport</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/consumer-durables"><span class="main-nav__text main-nav__text--lv12">Consumer Durables and Electronics</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/circularity-solution"><span class="main-nav__text main-nav__text--lv12">Circularity Solution</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/defence"><span class="main-nav__text main-nav__text--lv12">Defence</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/electrical-power"><span class="main-nav__text main-nav__text--lv12">Electrical and Power</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/industrial-machinery"><span class="main-nav__text main-nav__text--lv12">Industrial Machinery</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/home-solutions"><span class="main-nav__text main-nav__text--lv12">Home Solutions</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/packaging"><span class="main-nav__text main-nav__text--lv12">Packaging</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/industries/personal-mobility"><span class="main-nav__text main-nav__text--lv12">Personal Mobility</span></a></li>
+
+
+
+                                        <div class="menu-bg">
+                                            <figure class="figure">
+                                                <div class="fig-picture">
+                                                    <picture class="m-picture ">
+                                                            <source data-srcset="/Upload/Images/thumbnail/industries-menu-thumbnail.webp" srcset="/Upload/Images/thumbnail/industries-menu-thumbnail.webp" type="image/webp">
+                                                            <img data-src="/Upload/Images/thumbnail/industries-menu-thumbnail.webp" src="/Upload/Images/thumbnail/industries-menu-thumbnail.webp" class="img-fluid lazyloaded" alt="Industries We Serve" title="Industries We Serve">
+                                                    </picture>
+                                                </div>
+
+                                                <figcaption class="figure-caption">
+                                                    <div class="menu-bg-txt">
+                                                        <a href="/industries">
+Our products and applications cater to varied global markets, from packaging and pharmaceuticals to automotive and aerospace.                                                        </a>
+                                                    </div>
+                                                    <span class="arrowHalf"><img src="/assets/images/right-arrow-svg-white.svg"></span>
+                                                </figcaption>
+
+                                                <a href="/industries" class="stretched-link"></a>
+
+                                            </figure>
+                                        </div>
+
+
+
+                                    </ul>
+
+                                </li>
+                                <li class="main-nav__item main-nav__item--parent ourbrands_main-nav_item">
+                                    <a class="main-nav__link parent-active-link" title="" href="/our-brands">
+                                        <span><i class="main-nav__text main-nav__text--lvl1">Our Brands</i></span>
+                                    </a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-Our Brands">
+                                    <label class="main-nav__openlbl" for="toggle-level-Our Brands"><span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-Our Brands"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+
+                                        <li class="main-nav__item--teaser"><a href="/our-brands"><h3>Our Brands</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Our Brands</span> </li>
+
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands"><span class="main-nav__text main-nav__text--lv12">Overview</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands/priztec"><span class="main-nav__text main-nav__text--lv12">Hindalco PrizTec</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands/ecoedge-c"><span class="main-nav__text main-nav__text--lv12">Hindalco Ecoedge C</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands/ecoedge-g"><span class="main-nav__text main-nav__text--lv12">Hindalco Ecoedge G</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands/everlast"><span class="main-nav__text main-nav__text--lv12">Hindalco Everlast</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands/eternia"><span class="main-nav__text main-nav__text--lv12">Eternia</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands/freshwrapp"><span class="main-nav__text main-nav__text--lv12">Freshwrapp</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands/fusalox"><span class="main-nav__text main-nav__text--lv12">FUSALOX™</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/our-brands/totalis"><span class="main-nav__text main-nav__text--lv12">Totalis</span></a></li>
+
+
+
+                                        <div class="menu-bg">
+                                            <figure class="figure">
+                                                <div class="fig-picture">
+                                                    <picture class="m-picture ">
+                                                            <source data-srcset="/Upload/Images/thumbnail/brand-menu-thumbnail.webp" srcset="/Upload/Images/thumbnail/brand-menu-thumbnail.webp" type="image/webp">
+                                                            <img data-src="/Upload/Images/thumbnail/brand-menu-thumbnail.webp" src="/Upload/Images/thumbnail/brand-menu-thumbnail.webp" class="img-fluid lazyloaded" alt="Our brands stand as a testament to our technological excellence, delivering superior quality and reliability." title="Our brands stand as a testament to our technological excellence, delivering superior quality and reliability.">
+                                                    </picture>
+                                                </div>
+
+                                                <figcaption class="figure-caption">
+                                                    <div class="menu-bg-txt">
+                                                        <a href="/our-brands">
+Our brands stand as a testament to our technological excellence, delivering superior quality and reliability.                                                        </a>
+                                                    </div>
+                                                    <span class="arrowHalf"><img src="/assets/images/right-arrow-svg-white.svg"></span>
+                                                </figcaption>
+
+                                                <a href="/our-brands" class="stretched-link"></a>
+
+                                            </figure>
+                                        </div>
+
+
+
+                                    </ul>
+
+                                </li>
+                                <li class="main-nav__item main-nav__item--parent sustainability_main-nav_item">
+                                    <a class="main-nav__link parent-active-link" title="" href="/sustainability">
+                                        <span><i class="main-nav__text main-nav__text--lvl1">Sustainability</i></span>
+                                    </a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-Sustainability">
+                                    <label class="main-nav__openlbl" for="toggle-level-Sustainability"><span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-Sustainability"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+
+                                        <li class="main-nav__item--teaser"><a href="/sustainability"><h3>Sustainability</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Sustainability</span> </li>
+
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/sustainability"><span class="main-nav__text main-nav__text--lv12">Overview</span></a></li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-with-link" href="/sustainability/planet"><span><i class="main-nav__text main-nav__text--lvl2">Planet</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Planet">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Planet"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Planet"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Planet</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Overview" href="/sustainability/planet"><span><i class="main-nav__text main-nav__text--lvl3">Overview</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Sustainable Operations" href="/sustainability/planet/sustainable-operations"><span><i class="main-nav__text main-nav__text--lvl3">Sustainable Operations</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Tailings Management" href="/sustainability/planet/tailings-management"><span><i class="main-nav__text main-nav__text--lvl3">Tailings Management</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Sustainable mining" href="/sustainability/planet/sustainable-mining"><span><i class="main-nav__text main-nav__text--lvl3">Sustainable mining</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="UNGC Commitment" href="/sustainability/planet/hindalco-commitment-ungc"><span><i class="main-nav__text main-nav__text--lvl3">UNGC Commitment</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-with-link" href="/sustainability/people"><span><i class="main-nav__text main-nav__text--lvl2">People</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-People">
+                                                    <label class="main-nav__openlbl" for="toggle-level-People"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-People"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>People</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Overview" href="/sustainability/people"><span><i class="main-nav__text main-nav__text--lvl3">Overview</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Community" href="/sustainability/people/community"><span><i class="main-nav__text main-nav__text--lvl3">Community</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/sustainability/policies"><span class="main-nav__text main-nav__text--lv12">Policies</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/sustainability/sustainability-reports"><span class="main-nav__text main-nav__text--lv12">Sustainability Reports</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/sustainability/regulatory-compliances"><span class="main-nav__text main-nav__text--lv12">Regulatory Compliances</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/sustainability/esg-profile"><span class="main-nav__text main-nav__text--lv12">ESG Profile</span></a></li>
+
+
+
+                                        <div class="menu-bg">
+                                            <figure class="figure">
+                                                <div class="fig-picture">
+                                                    <picture class="m-picture ">
+                                                            <source data-srcset="/Upload/Images/thumbnail/thumbnail-menu-sustainability.webp" srcset="/Upload/Images/thumbnail/thumbnail-menu-sustainability.webp" type="image/webp">
+                                                            <img data-src="/Upload/Images/thumbnail/thumbnail-menu-sustainability.webp" src="/Upload/Images/thumbnail/thumbnail-menu-sustainability.webp" class="img-fluid lazyloaded" alt="Sustainability" title="Sustainability">
+                                                    </picture>
+                                                </div>
+
+                                                <figcaption class="figure-caption">
+                                                    <div class="menu-bg-txt">
+                                                        <a href="/sustainability">
+Hindalco is firmly committed to sustainable business practices and continually strives to minimise its environmental impact at every stage of the value chain.                                                        </a>
+                                                    </div>
+                                                    <span class="arrowHalf"><img src="/assets/images/right-arrow-svg-white.svg"></span>
+                                                </figcaption>
+
+                                                <a href="/sustainability" class="stretched-link"></a>
+
+                                            </figure>
+                                        </div>
+
+
+
+                                    </ul>
+
+                                </li>
+                                <li class="main-nav__item main-nav__item--parent investors_main-nav_item">
+                                    <a class="main-nav__link parent-active-link" title="" href="/investors">
+                                        <span><i class="main-nav__text main-nav__text--lvl1">Investors</i></span>
+                                    </a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-Investors">
+                                    <label class="main-nav__openlbl" for="toggle-level-Investors"><span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-Investors"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+
+                                        <li class="main-nav__item--teaser"><a href="/investors"><h3>Investors</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Investors</span> </li>
+
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/investors"><span class="main-nav__text main-nav__text--lv12">Overview</span></a></li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-without-link"><span><i class="main-nav__text main-nav__text--lvl2 ">Financial Performance</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Financial Performance">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Financial Performance"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Financial Performance"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Financial Performance</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Financial Highlights" href="/investors/financial-performance/financial-highlights"><span><i class="main-nav__text main-nav__text--lvl3">Financial Highlights</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Results, Reports and Presentations" href="/investors/financial-performance/results-reports-presentations"><span><i class="main-nav__text main-nav__text--lvl3">Results, Reports and Presentations</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Credit Ratings" href="/investors/financial-performance/credit-rating"><span><i class="main-nav__text main-nav__text--lvl3">Credit Ratings</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-without-link"><span><i class="main-nav__text main-nav__text--lvl2 ">Integrated Report</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Integrated Report">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Integrated Report"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Integrated Report"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Integrated Report</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Integrated Report/Annual Report" href="/investors/integrated-report/annual-reports"><span><i class="main-nav__text main-nav__text--lvl3">Integrated Report/Annual Report</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Subsidiary Financial Reports" href="/investors/integrated-report/subsidiary-financial-reports"><span><i class="main-nav__text main-nav__text--lvl3">Subsidiary Financial Reports</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-without-link"><span><i class="main-nav__text main-nav__text--lvl2 ">Investors Centre</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Investors Centre">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Investors Centre"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Investors Centre"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Investors Centre</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Investor Day" href="/investors/investors-centre/investor-day"><span><i class="main-nav__text main-nav__text--lvl3">Investor Day</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Growth Strategy" href="/investors/investors-centre/growth-strategy"><span><i class="main-nav__text main-nav__text--lvl3">Growth Strategy</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Analyst Coverage" href="/investors/investors-centre/analyst-coverage"><span><i class="main-nav__text main-nav__text--lvl3">Analyst Coverage</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Schedule of Analyst/Institutional Investor Meet" href="/investors/investors-centre/schedule-analysts-Institutional-investors-meet"><span><i class="main-nav__text main-nav__text--lvl3">Schedule of Analyst/Institutional Investor Meet</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-without-link"><span><i class="main-nav__text main-nav__text--lvl2 ">Shareholder Centre</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Shareholder Centre">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Shareholder Centre"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Shareholder Centre"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Shareholder Centre</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Listing Details" href="/investors/shareholder-centre/listing-details"><span><i class="main-nav__text main-nav__text--lvl3">Listing Details</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Debenture Trustee" href="/investors/shareholder-centre/debentures"><span><i class="main-nav__text main-nav__text--lvl3">Debenture Trustee</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Registrar and Share Transfer Agents" href="/investors/shareholder-centre/registrar-share-transfer-agents"><span><i class="main-nav__text main-nav__text--lvl3">Registrar and Share Transfer Agents</i></span></a> </li>
+                                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                                        <a class="main-nav__link child-hover-item menu-without-link"><span><i class="main-nav__text main-nav__text--lvl2">Dividend</i></span></a>
+
+                                                                    <input type="checkbox" class="main-nav__toggle-level4" id="toggle-level-Dividend">
+                                                                    <label class="main-nav__openlbl" for="toggle-level-Dividend"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                                    <label class="main-nav__closelbl" for="toggle-level-Dividend"> <span>Back</span> </label>
+
+
+                                                                    <ul class="main-nav__list main-nav__list--lvl4">
+                                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Dividend</span> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="Unclaimed Dividend" href="/investors/shareholder-centre/dividend/unclaimed-dividend"><span><i class="main-nav__text main-nav__text--lvl3">Unclaimed Dividend</i></span></a> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="Unclaimed Shares" href="/investors/shareholder-centre/dividend/equity-shares-details"><span><i class="main-nav__text main-nav__text--lvl3">Unclaimed Shares</i></span></a> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="TDS on dividend" href="/investors/tds-on-dividend"><span><i class="main-nav__text main-nav__text--lvl3">TDS on dividend</i></span></a> </li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Online Dispute Resolution (ODR)" href="/investors/shareholder-centre/online-dispute-resolution"><span><i class="main-nav__text main-nav__text--lvl3">Online Dispute Resolution (ODR)</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Communication to Shareholders" href="/contact-us/contact-addresses#investor"><span><i class="main-nav__text main-nav__text--lvl3">Communication to Shareholders</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Forms" href="/investors/shareholder-centre/forms"><span><i class="main-nav__text main-nav__text--lvl3">Forms</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="FAQs" href="/investors/shareholder-centre/faqs"><span><i class="main-nav__text main-nav__text--lvl3">FAQs</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Share Price Data" href="/investors/share-price-data"><span><i class="main-nav__text main-nav__text--lvl3">Share Price Data</i></span></a> </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                        <a class="main-nav__link child-hover-item menu-without-link"><span><i class="main-nav__text main-nav__text--lvl2 ">Corporate Governance</i></span></a>
+
+                                                    <input type="checkbox" class="main-nav__toggle-level3" id="toggle-level-Corporate Governance">
+                                                    <label class="main-nav__openlbl" for="toggle-level-Corporate Governance"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                    <label class="main-nav__closelbl" for="toggle-level-Corporate Governance"> <span>Back</span> </label>
+
+                                                    <ul class="main-nav__list main-nav__list--lvl3">
+
+                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Corporate Governance</span> </li>
+
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Policies" href="/investors/corporate-governance#Policies"><span><i class="main-nav__text main-nav__text--lvl3">Policies</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Committee Charters" href="/investors/corporate-governance#Committee-Charters"><span><i class="main-nav__text main-nav__text--lvl3">Committee Charters</i></span></a> </li>
+                                                                <li class="main-nav__item"><a class="main-nav__link" title="Code of Conduct" href="/investors/corporate-governance#Code-of-Conduct"><span><i class="main-nav__text main-nav__text--lvl3">Code of Conduct</i></span></a> </li>
+                                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                                        <a class="main-nav__link child-hover-item menu-with-link" href="/investors/corporate-governance/meetings"><span><i class="main-nav__text main-nav__text--lvl2">Meeting</i></span></a>
+
+                                                                    <input type="checkbox" class="main-nav__toggle-level4" id="toggle-level-Meeting">
+                                                                    <label class="main-nav__openlbl" for="toggle-level-Meeting"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                                    <label class="main-nav__closelbl" for="toggle-level-Meeting"> <span>Back</span> </label>
+
+
+                                                                    <ul class="main-nav__list main-nav__list--lvl4">
+                                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Meeting</span> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="Board Meeting" href="/investors/corporate-governance/meetings#board_meeting"><span><i class="main-nav__text main-nav__text--lvl3">Board Meeting</i></span></a> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="General Meeting" href="/investors/corporate-governance/meetings#general_meeting"><span><i class="main-nav__text main-nav__text--lvl3">General Meeting</i></span></a> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="Postal Ballot" href="/investors/corporate-governance/meetings#postal_ballot"><span><i class="main-nav__text main-nav__text--lvl3">Postal Ballot</i></span></a> </li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li class="main-nav__item main-nav__item--parent parent-hover-item">
+                                                                        <a class="main-nav__link child-hover-item menu-with-link" href="/investors/corporate-governance/stock-exchange-compliances"><span><i class="main-nav__text main-nav__text--lvl2">Stock Exchange Compliances</i></span></a>
+
+                                                                    <input type="checkbox" class="main-nav__toggle-level4" id="toggle-level-Stock Exchange Compliances">
+                                                                    <label class="main-nav__openlbl" for="toggle-level-Stock Exchange Compliances"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                                                    <label class="main-nav__closelbl" for="toggle-level-Stock Exchange Compliances"> <span>Back</span> </label>
+
+
+                                                                    <ul class="main-nav__list main-nav__list--lvl4">
+                                                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Stock Exchange Compliances</span> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="Corporate Governance Reports" href="/investors/corporate-governance/stock-exchange-compliances/corporate-governance-reports"><span><i class="main-nav__text main-nav__text--lvl3">Corporate Governance Reports</i></span></a> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="Shareholding Pattern" href="/investors/corporate-governance/stock-exchange-compliances/shareholding-pattern"><span><i class="main-nav__text main-nav__text--lvl3">Shareholding Pattern</i></span></a> </li>
+                                                                            <li class="main-nav__item"><a class="main-nav__link" title="Investor Grievance Complaint" href="/investors/corporate-governance/stock-exchange-compliances/investor-grievance-complaint"><span><i class="main-nav__text main-nav__text--lvl3">Investor Grievance Complaint</i></span></a> </li>
+                                                                    </ul>
+                                                                </li>
+
+                                                    </ul>
+                                                </li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/investors/corporate-governance/disclosures-regulation-46-and-62-sebi-lodr-reg-2015"><span class="main-nav__text main-nav__text--lv12">Disclosures under Regulation 46 and 62 of SEBI</span></a></li>
+
+
+
+                                        <div class="menu-bg">
+                                            <figure class="figure">
+                                                <div class="fig-picture">
+                                                    <picture class="m-picture ">
+                                                            <source data-srcset="/Upload/Images/thumbnail/thumbnail-investor.webp" srcset="/Upload/Images/thumbnail/thumbnail-investor.webp" type="image/webp">
+                                                            <img data-src="/Upload/Images/thumbnail/thumbnail-investor.webp" src="/Upload/Images/thumbnail/thumbnail-investor.webp" class="img-fluid lazyloaded" alt="Investors" title="Investors">
+                                                    </picture>
+                                                </div>
+
+                                                <figcaption class="figure-caption">
+                                                    <div class="menu-bg-txt">
+                                                        <a href="/investors">
+Hindalco's 65-year-old legacy, coupled with its commitment to continuous innovation, positions it as a promising company for investors seeking long-term value.                                                        </a>
+                                                    </div>
+                                                    <span class="arrowHalf"><img src="/assets/images/right-arrow-svg-white.svg"></span>
+                                                </figcaption>
+
+                                                <a href="/investors" class="stretched-link"></a>
+
+                                            </figure>
+                                        </div>
+
+
+
+                                    </ul>
+
+                                </li>
+                                <li class="main-nav__item main-nav__item--parent contact_main-nav_item">
+                                    <a class="main-nav__link parent-active-link" title="" href="/contact-us">
+                                        <span><i class="main-nav__text main-nav__text--lvl1">Contact</i></span>
+                                    </a>
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-Contact">
+                                    <label class="main-nav__openlbl" for="toggle-level-Contact"><span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-Contact"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+
+                                        <li class="main-nav__item--teaser"><a href="/contact-us"><h3>Contact</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Contact</span> </li>
+
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/contact-us"><span class="main-nav__text main-nav__text--lv12">Overview</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/contact-us#write-to-us-form"><span class="main-nav__text main-nav__text--lv12">Enquiry Form</span></a></li>
+                                                <li class="main-nav__item"><a class="main-nav__link" href="/contact-us/contact-addresses"><span class="main-nav__text main-nav__text--lv12">Contact Information</span></a></li>
+
+
+
+                                        <div class="menu-bg">
+                                            <figure class="figure">
+                                                <div class="fig-picture">
+                                                    <picture class="m-picture ">
+                                                            <source data-srcset="/Upload/Images/thumbnail/contact-us-thumbnail-menu.webp" srcset="/Upload/Images/thumbnail/contact-us-thumbnail-menu.webp" type="image/webp">
+                                                            <img data-src="/Upload/Images/thumbnail/contact-us-thumbnail-menu.webp" src="/Upload/Images/thumbnail/contact-us-thumbnail-menu.webp" class="img-fluid lazyloaded" alt="Contact Hindalco for queries related to media, investor relations, sales, or career opportunities." title="Contact Hindalco for queries related to media, investor relations, sales, or career opportunities.">
+                                                    </picture>
+                                                </div>
+
+                                                <figcaption class="figure-caption">
+                                                    <div class="menu-bg-txt">
+                                                        <a href="/contact-us">
+Contact Hindalco for queries related to media, investor relations, sales, or career opportunities.                                                        </a>
+                                                    </div>
+                                                    <span class="arrowHalf"><img src="/assets/images/right-arrow-svg-white.svg"></span>
+                                                </figcaption>
+
+                                                <a href="/contact-us" class="stretched-link"></a>
+
+                                            </figure>
+                                        </div>
+
+
+
+                                    </ul>
+
+                                </li>
+
+
+
+
+
+                                <li class="main-nav__item main-nav__item--parent d-lg-none d-xl-none d-xxl-none">
+                                    <a class="main-nav__link parent-active-link" href="/work-with-us"><span><i class="main-nav__text main-nav__text--lv12">Work with us</i></span></a>
+
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-Work with us">
+                                    <label class="main-nav__openlbl" for="toggle-level-Work with us"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-Work with us"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+                                        <li class="main-nav__item--teaser"><a href="/work-with-us"><h3>Work with us</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Work with us</span> </li>
+
+                                        <li class="main-nav__item d-lg-none d-xl-none d-xxl-none"><a class="main-nav__link" href="/work-with-us"><span><i class="main-nav__text main-nav__text--lv12">Overview</i></span></a></li>
+
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Life @ Hindalco" href="/work-with-us/life-at-hindalco"><span><i class="main-nav__text main-nav__text--lvl2">Life @ Hindalco</i></span></a> </li>
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Diversity" href="/work-with-us/diversity"><span><i class="main-nav__text main-nav__text--lvl2">Diversity</i></span></a> </li>
+                                            <li class="main-nav__item"><a class="main-nav__link" title="People Stories" href="/work-with-us/people-stories"><span><i class="main-nav__text main-nav__text--lvl2">People Stories</i></span></a> </li>
+                                    </ul>
+                                </li>
+                                <li class="main-nav__item main-nav__item--parent d-lg-none d-xl-none d-xxl-none">
+                                    <a class="main-nav__link parent-active-link" href="/media"><span><i class="main-nav__text main-nav__text--lv12">Media</i></span></a>
+
+                                    <input type="checkbox" class="main-nav__toggle-level2" id="toggle-level-Media">
+                                    <label class="main-nav__openlbl" for="toggle-level-Media"> <span class="label-invisible">Open Main-Navigation Level2</span> </label>
+                                    <label class="main-nav__closelbl" for="toggle-level-Media"> <span>Back</span> </label>
+
+                                    <ul class="main-nav__list main-nav__list--lvl2">
+                                        <li class="main-nav__item--teaser"><a href="/media"><h3>Media</h3></a></li>
+                                        <li class="main-nav__item main-nav__item--parent-lvl"> <span>Media</span> </li>
+
+                                        <li class="main-nav__item d-lg-none d-xl-none d-xxl-none"><a class="main-nav__link" href="/media"><span><i class="main-nav__text main-nav__text--lv12">Overview</i></span></a></li>
+
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Press release" href="/media/press-releases"><span><i class="main-nav__text main-nav__text--lvl2">Press release</i></span></a> </li>
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Stories" href="/media/stories"><span><i class="main-nav__text main-nav__text--lvl2">Stories</i></span></a> </li>
+                                            <li class="main-nav__item"><a class="main-nav__link" title="Media kit" href="/media/media-kit"><span><i class="main-nav__text main-nav__text--lvl2">Media kit</i></span></a> </li>
+                                    </ul>
+                                </li>
+                                <li class="main-nav__item d-lg-none d-xl-none d-xxl-none">
+                                    <a class="main-nav__link" href="http://crm.hindalco.com:8010/OA_HTML/hilcrm/login.jsp" target="_blank"><span><i class="main-nav__text main-nav__text--lv12">CRM</i></span></a>
+                                </li>
+                                <li class="main-nav__item d-lg-none d-xl-none d-xxl-none">
+                                    <a class="main-nav__link" href="http://crm.hindalco.com:8010/OA_HTML/hilsrm/login.jsp" target="_blank"><span><i class="main-nav__text main-nav__text--lv12">SRM</i></span></a>
+                                </li>
+
+
+
+
+                    </ul>
+
+                </nav>
+                <!--Main NAVIGATION END-->
+
+            </div>
+        </div>
+
+        <ul class="search-container">
+            <li>
+                <span id="form-open" class="search-toggle nav-link"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <div class="search-holder">
+                    <div id="search-form" class="search-form">
+                        <input class="search-input" placeholder="Type your keyword(s)" type="text" id="txttitle" />
+
+                        <button class="search-toggle" id="btnSearch">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <button type="reset" id="form-close" class="search-close">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+    </div>
+</header>
+
+        <!-- End Header -->
+
+        <div class="viewport">
+            <div id="scroll-container" class="scroll-container">
+                <!--============= header div end here ==========-->
+                
+
+
+
+
+
+<!-- 404 content end here -->
+<section id="content">
+    <!--Location-->
+    <section id="loaction">
+            <!--TITLE-->
+            <section class="main-content without-masthead error-section" id="error-page">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                            <h2 class="after-none d-block">404</h2>
+                            <h3 class="after-none d-block">PAGE NOT FOUND</h3>
+                            <p class="text">
+                                The page requested couldn't be found.<br> This could be a
+                                spelling error in the url or a removed page.
+                            </p>
+
+                           
+                            <a class="readmore" href="/" target="_self">
+                                <span>Go to the home page <img src="/assets/images/right-arrow-svg-white.svg"></span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--TITLE END-->
+
+
+        <!--BRANDS LIST END-->
+    </section>
+    <!--Our brands End-->
+
+
+</section>
+
+
+ 
+
+                <!--============= footer div start here ==========-->
+                <!-- Footer -->
+                
+
+
+
+
+<footer class='fadeInUp-view animate-element'>
+
+    <div class="footer-section-2 accordion-footer">
+        <div class="container">
+            <div class="row">
+
+                    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4 text-left footer-dtl">
+                        <div class="text-left">
+                            
+                            <a href="/" target="_self">
+                                    <img src="/Upload/Images/thumbnail/footer-logo.webp" class="abg-logo img-fluid" alt="">
+                            </a>
+                        </div>
+<p><span class="semibold">Hindalco</span> is one of the world's largest aluminium rolling and recycling companies, a global leader in copper, and a prominent player in specialty alumina and hydrates.                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 col-xxl-5 footer-nav ftr_list_nav large-footer-col">
+                        <h3>Quick Links</h3>
+                        <ul class="foot-list quicklinks-list">
+                                <li><a href="/businesses/aluminium">Aluminium</a></li>
+                                <li><a href="/businesses/copper">Copper</a></li>
+                                <li><a href="/businesses/specialty-alumina">Specialty Alumina</a></li>
+                                <li><a href="/about-us/innovation">Innovation</a></li>
+                                <li><a href="/sustainability/planet">Planet</a></li>
+                                <li><a href="/sustainability/people">People</a></li>
+                                <li><a href="/work-with-us/life-at-hindalco">Life @ Hindalco</a></li>
+                                <li><a href="/media/stories">Stories</a></li>
+                                <li><a href="/investors">Investors</a></li>
+                                <li><a href="/industries">Industries</a></li>
+                                <li><a href="/about-us/leadership">Leadership</a></li>
+                                <li><a href="/about-us/legacy">Legacy</a></li>
+                        </ul>
+                    </div>
+
+
+                <div class="col-sm-12 col-md-3 col-lg-4 col-xl-3 col-xxl-3 footer-nav ftr_list_nav footer-dtr">
+
+                    <h3>Contact Us</h3>
+                    <div class="foot-list">
+
+<p>Hindalco Industries Limited,<br>21st Floor, One Unity Center,<br>Senapati Bapat Marg,&nbsp;<br>Prabhadevi,<br>Mumbai - 400013</p><div class="dtl-box"><span>Tel:</span> <a href="tel: 91-22-6947-7000 ">91-22-6947-7000 </a>/ <a href="tel: 91-22-6947-7150 ">91-22-69477150&nbsp;</a></div>                            <div class="dtl-box"><span>Email:</span> <a href="mailto:hilinvestors@adityabirla.com">hilinvestors@adityabirla.com</a></div>
+
+
+                            <h4><span class="follow-text">Follow us on:</span></h4>
+                            <div class="socia-icon footer-social">
+                                    <a href="https://www.facebook.com/HindalcoIndustries/" target="_blank" class="facebook-link">
+                                        <img class="img-fluid" src="/Upload/Images/thumbnail/facebook.svg">
+                                    </a>
+                                    <a href="https://x.com/hindalco_world" target="_blank" class="twitter-link">
+                                        <img class="img-fluid" src="/Upload/Images/thumbnail/twitter.svg">
+                                    </a>
+                                    <a href="https://in.linkedin.com/company/hindalcoindustrieslimited" target="_blank" class="linkedin-link">
+                                        <img class="img-fluid" src="/Upload/Images/thumbnail/linkedin.svg">
+                                    </a>
+                                    <a href="https://www.instagram.com/hindalcoworld/" target="_blank" class="instagram-link">
+                                        <img class="img-fluid" src="/Upload/Images/thumbnail/instagram.svg">
+                                    </a>
+                                    <a href="https://www.youtube.com/@hindalcoindustries" target="_blank" class="youtube-link">
+                                        <img class="img-fluid" src="/Upload/Images/thumbnail/youtube.svg">
+                                    </a>
+                            </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+        <div class="footer-section-1 footer-ourbrands">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"><div class="footer-ourbrands-head"><h5 class="fw-bold">Our Brands</h5></div></div>
+                    <div class="col-md-10">
+                        <div class="brands-slider">
+                            <div class="slider-track">
+                                    <div class="logo"><a href="/our-brands/ecoedge-c"><img src="/Upload/Images/thumbnail/Eco-edge.svg" alt="Eco edge" title="Eco edge" class="img-fluid" /></a></div>
+                                    <div class="logo"><a href="/our-brands/ecoedge-g"><img src="/Upload/Images/thumbnail/Eco-edge-G.svg" alt="ecoedge-g" title="ecoedge-g" class="img-fluid" /></a></div>
+                                    <div class="logo"><a href="/our-brands/eternia"><img src="/Upload/Images/thumbnail/Eternia.svg" alt="Eternia" title="Eternia" class="img-fluid" /></a></div>
+                                    <div class="logo"><a href="/our-brands/freshwrapp"><img src="/Upload/Images/thumbnail/Fresswrap.svg" alt="Freshwrapp" title="Freshwrapp" class="img-fluid" /></a></div>
+                                    <div class="logo"><a href="/our-brands/everlast"><img src="/Upload/Images/thumbnail/Hindalco-Everlast.svg" alt="Hindalco Everlast" title="Hindalco Everlast" class="img-fluid" /></a></div>
+                                    <div class="logo"><a href="/our-brands/priztec"><img src="/Upload/Images/thumbnail/hindalco-priztex.svg" alt="Priztec" title="Priztec" class="img-fluid" /></a></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer-section-3 text-center">
+            <div class="container">
+                <div class="bot-foot">
+                    <div class="copyright-wrap">
+                        Copyright &copy; <span id="year-foot"> </span> &nbsp Hindalco Industries Ltd. &nbsp | &nbsp
+
+
+
+                                <a href='/legal-disclaimer'>Legal disclaimer</a>
+ |   <a href="/beware-of-fraudulent-job-offers">Beware of fraudulent job offers</a>
+ |   <a href="/data-privacy-policy">Data Privacy Policy</a>
+ |   <a href="/sitemap">Sitemap</a>
+                    </div>
+
+
+                    <div class="credits">
+                        <a href="https://www.ticworks.com/" target="_blank">TIC</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</footer>
+
+            </div>
+        </div>
+    </section>
+
+
+ 
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa-solid fa-chevron-up"></i></a>
+
+
+
+    <div class="gcode-div" id="gcode"></div>
+    <div class="privacy_policy_botm" id="popup-privacypolicy">
+        <div class="container">
+            <div class="privacy_policy_bg">
+                <p>We have updated our policy. By continuing to browse this website, you agree to our privacy policy and the use of cookies on the website.</p>
+                <div class="privacy_btn">
+                    <div class="privacy_close transition_all_4s hvr-shutter-out-horizontal red acceptbtn" id="acceptCookie">OK</div>
+                    <a href="/data-privacy-policy" class="transition_all_4s red acceptbtn">Read our Privacy policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End Footer -->
+    <!--============= footer div end here ==========-->
+    <!--*************initialize jQuery Library *************-->
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!--*************Lazysizes*************-->
+    <script type="text/javascript" src="/assets/js/lazysizes.min.js" type="text/javascript"></script>
+
+    <!--*************GSAP*************-->
+    <script type="text/javascript" src="/assets/js/gsap.min.js"></script>
+    <Script type="text/javascript" src="/assets/js/ScrollTrigger.min.js"></Script>
+     <script type="text/javascript" src="/assets/js/ScrollToPlugin.min.js"></script>
+    <script type="text/javascript" src="/assets/js/lenis.min.js"></script>
+
+    
+    <script src="/assets/js/Search_script.js" type="text/javascript"></script>
+    <script src="/assets/js/cookie-script.js"></script>
+
+
+ 
+   
+   
+
+
+    
+</body>
+</html>
