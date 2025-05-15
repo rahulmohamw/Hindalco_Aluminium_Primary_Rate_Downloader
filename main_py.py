@@ -29,6 +29,28 @@ PRODUCTS = [
     "7. Billets (AA6063) Dia 5\" , 6\" - subject to availability"
 ]
 
+# Dictionary with product short names for file naming (without numbers and with concise descriptions)
+PRODUCT_FILE_NAMES = {
+    PRODUCTS[0]: "P0406_Aluminum_Ingot",
+    PRODUCTS[1]: "P0610_P1020_EC_Grade_Ingot",
+    PRODUCTS[2]: "CG_Grade_Ingot",
+    PRODUCTS[3]: "EC_Grade_Wire_Rods",
+    PRODUCTS[4]: "Alloy_6201_Wire_Rod",
+    PRODUCTS[5]: "Billets_AA6063_Large",
+    PRODUCTS[6]: "Billets_AA6063_Small"
+}
+
+# Dictionary with product descriptions
+PRODUCT_DESCRIPTIONS = {
+    PRODUCTS[0]: "P0406 (Si 0.04% max, Fe 0.06% max) 99.85% (min)",
+    PRODUCTS[1]: "P0610 (99.85% min) /P1020/ EC Grade Ingot & Sow 99.7% (min) / Cast Bar",
+    PRODUCTS[2]: "CG Grade Ingot & Sow 99.5% (min) purity",
+    PRODUCTS[3]: "EC Grade Wire Rods, Dia 9.5 mm - Conductivity 61% min",
+    PRODUCTS[4]: "6201 Alloy Wire Rod - Dia 9.5 mm (HAC-1)",
+    PRODUCTS[5]: "Billets (AA6063) Dia 7\", 8\" & 9\" - subject to availability",
+    PRODUCTS[6]: "Billets (AA6063) Dia 5\", 6\" - subject to availability"
+}
+
 # Base directory for storage
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DOWNLOADS_DIR = os.path.join(BASE_DIR, 'downloads')
@@ -373,10 +395,10 @@ def update_csv_files(product_rates):
         logger.warning("No product rates provided. Creating empty CSV files.")
         # Create empty CSV files with headers
         for product in PRODUCTS:
-            product_file = os.path.join(CSV_DIR, f"{product.split('.')[0].strip()}.csv")
+            product_file = os.path.join(CSV_DIR, f"{PRODUCT_FILE_NAMES[product]}.csv")
             if not os.path.exists(product_file):
                 with open(product_file, 'w', newline='') as f:
-                    writer = csv.DictWriter(f, fieldnames=['date', 'rate'])
+                    writer = csv.DictWriter(f, fieldnames=['date', 'description', 'rate'])
                     writer.writeheader()
         return False
     
@@ -386,8 +408,11 @@ def update_csv_files(product_rates):
         return False
     
     for product in PRODUCTS:
-        product_file = os.path.join(CSV_DIR, f"{product.split('.')[0].strip()}.csv")
-        product_data = {'date': date}
+        product_file = os.path.join(CSV_DIR, f"{PRODUCT_FILE_NAMES[product]}.csv")
+        product_data = {
+            'date': date,
+            'description': PRODUCT_DESCRIPTIONS[product]
+        }
         
         if product in product_rates:
             product_data['rate'] = product_rates[product]
@@ -435,7 +460,7 @@ def update_csv_files(product_rates):
             # Create new CSV with headers
             logger.info(f"Creating new CSV file {product_file}")
             with open(product_file, 'w', newline='') as f:
-                writer = csv.DictWriter(f, fieldnames=['date', 'rate'])
+                writer = csv.DictWriter(f, fieldnames=['date', 'description', 'rate'])
                 writer.writeheader()
                 if 'rate' in product_data:
                     writer.writerow(product_data)
@@ -447,6 +472,9 @@ def update_csv_files(product_rates):
 def main():
     """Main function to download PDF and update CSV files."""
     today = datetime.now()
+    
+    # Handle migrating existing CSVs (if needed) - one-time operation for existing files
+    migrate_existing_csvs()
     
     # Create directory structure
     save_dir = create_directory_structure(today)
@@ -504,6 +532,59 @@ def main():
             logger.info(f"Current directory contents: {os.listdir('.')}")
         except Exception as e:
             logger.error(f"Error listing directory: {e}")
+
+
+def migrate_existing_csvs():
+    """
+    Migrate existing CSVs with numeric names to the new naming convention.
+    Also adds the description column if it doesn't exist.
+    """
+    logger.info("Checking for existing CSVs to migrate to new naming convention")
+    os.makedirs(CSV_DIR, exist_ok=True)
+    
+    # Look for old CSV files (numeric format)
+    old_csv_files = []
+    for i in range(1, 8):  # 1 through 7
+        old_file = os.path.join(CSV_DIR, f"{i}.csv")
+        if os.path.exists(old_file):
+            old_csv_files.append((old_file, i-1))  # Store file path and corresponding product index
+    
+    if not old_csv_files:
+        logger.info("No old CSV files found to migrate")
+        return
+    
+    logger.info(f"Found {len(old_csv_files)} old CSV files to migrate")
+    
+    # Process each old file
+    for old_file, product_index in old_csv_files:
+        product = PRODUCTS[product_index]
+        new_file = os.path.join(CSV_DIR, f"{PRODUCT_FILE_NAMES[product]}.csv")
+        
+        # Skip if the new file already exists
+        if os.path.exists(new_file):
+            logger.info(f"New file {new_file} already exists, skipping migration for {old_file}")
+            continue
+        
+        try:
+            # Read the old CSV
+            df = pd.read_csv(old_file)
+            logger.info(f"Read old CSV file {old_file} with {len(df)} rows")
+            
+            # Add description column if it doesn't exist
+            if 'description' not in df.columns:
+                df['description'] = PRODUCT_DESCRIPTIONS[product]
+                logger.info(f"Added description column to data from {old_file}")
+            
+            # Save to new file
+            df.to_csv(new_file, index=False)
+            logger.info(f"Migrated {old_file} to {new_file}")
+            
+            # Optionally, remove the old file
+            # os.remove(old_file)
+            # logger.info(f"Removed old file {old_file}")
+            
+        except Exception as e:
+            logger.error(f"Error migrating {old_file} to {new_file}: {e}")
 
 
 if __name__ == "__main__":
