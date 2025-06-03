@@ -16,30 +16,51 @@ jobs:
   download-and-process:
     runs-on: ubuntu-latest
     
+    permissions:
+      contents: write
+      actions: write
+      
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+        
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.11'
         
-    - name: Install dependencies
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y default-jdk default-jre
+        
+    - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
         pip install requests pandas PyPDF2 tabula-py openpyxl
-        # Install Java for tabula-py
-        sudo apt-get update
-        sudo apt-get install -y default-jre
+        pip install --upgrade setuptools wheel
+        
+    - name: Verify Java installation
+      run: |
+        java -version
+        which java
+        echo "JAVA_HOME: $JAVA_HOME"
         
     - name: Create directories
       run: |
         mkdir -p pdfs
         mkdir -p csv_data
+        mkdir -p logs
         
     - name: Run PDF downloader
       run: |
+        echo "Current directory: $(pwd)"
+        echo "Files in current directory:"
+        ls -la
+        
         if [ -n "${{ github.event.inputs.download_historical }}" ] && [ "${{ github.event.inputs.download_historical }}" != "0" ]; then
           echo "Running with historical download: ${{ github.event.inputs.download_historical }} days"
           python main.py --historical-days ${{ github.event.inputs.download_historical }}
@@ -48,63 +69,141 @@ jobs:
           python main.py
         fi
         
-    - name: Check for new data
-      id: check_data
+    - name: List generated files
       run: |
-        if [ -n "$(find csv_data -name '*.csv' -newer .git/FETCH_HEAD 2>/dev/null)" ]; then
-          echo "new_data=true" >> $GITHUB_OUTPUT
-        else
-          echo "new_data=false" >> $GITHUB_OUTPUT
-        fi
+        echo "=== PDF Directory ==="
+        ls -la pdfs/ || echo "No PDFs directory or files"
+        echo ""
+        echo "=== CSV Directory ==="
+        ls -la csv_data/ || echo "No CSV directory or files"
+        echo ""
+        echo "=== Logs Directory ==="
+        ls -la logs/ || echo "No logs directory or files"
         
-    - name: Upload CSV files
-      if: steps.check_data.outputs.new_data == 'true'
-      uses: actions/upload-artifact@v4
-      with:
-        name: hindalco-csv-data
-        path: csv_data/*.csv
-        retention-days: 30
-        
-    - name: Upload PDF files
-      if: steps.check_data.outputs.new_data == 'true'
-      uses: actions/upload-artifact@v4
-      with:
-        name: hindalco-pdf-files
-        path: pdfs/*.pdf
-        retention-days: 7
-        
-    - name: Commit and push changes
-      if: steps.check_data.outputs.new_data == 'true'
+    - name: Check for changes
+      id: check_changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add csv_data/*.csv
-        git commit -m "Update Hindalco data - $(date +'%Y-%m-%d')" || exit 0
-        git push
         
-    - name: Create summary
+        # Check if there are any changes
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "No changes detected"
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "Changes detected"
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        fi
+        
+        # Check specifically for CSV files
+        if [ -d "csv_data" ] && [ "$(ls -A csv_data/)" ]; then
+          echo "CSV files found"
+          echo "has_csv=true" >> $GITHUB_OUTPUT
+        else
+          echo "No CSV files found"
+          echo "has_csv=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Upload CSV artifacts
+      if: steps.check_changes.outputs.has_csv == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: hindalco-csv-data-${{ github.run_number }}
+        path: csv_data/
+        retention-days: 30
+        
+    - name: Upload PDF artifacts
+      if: steps.check_changes.outputs.has_csv == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: hindalco-pdf-files-${{ github.run_number }}
+        path: pdfs/
+        retention-days: 7
+        
+    - name: Upload logs
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: hindalco-logs-${{ github.run_number }}
+        path: logs/
+        retention-days: 7
+        
+    - name: Commit and push changes
+      if: steps.check_changes.outputs.has_changes == 'true'
       run: |
-        echo "## Hindalco Data Download Summary" >> $GITHUB_STEP_SUMMARY
-        echo "**Date:** $(date +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        git add .
+        git status
+        
+        # Only commit if there are staged changes
+        if ! git diff --staged --quiet; then
+          git commit -m "Update Hindalco data - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          git push origin main
+          echo "Changes committed and pushed"
+        else
+          echo "No staged changes to commit"
+        fi
+        
+    - name: Create detailed summary
+      if: always()
+      run: |
+        echo "## 📊 Hindalco Data Download Summary" >> $GITHUB_STEP_SUMMARY
+        echo "**Execution Time:** $(date +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "**Workflow:** ${{ github.workflow }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Run Number:** ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         
-        if [ -d "csv_data" ]; then
-          echo "### CSV Files Generated:" >> $GITHUB_STEP_SUMMARY
-          ls -la csv_data/*.csv 2>/dev/null | while read line; do
-            echo "- $line" >> $GITHUB_STEP_SUMMARY
-          done || echo "- No CSV files found" >> $GITHUB_STEP_SUMMARY
+        # Parameters
+        if [ -n "${{ github.event.inputs.download_historical }}" ]; then
+          echo "**Historical Days:** ${{ github.event.inputs.download_historical }}" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "**Mode:** Daily download" >> $GITHUB_STEP_SUMMARY
+        fi
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        # CSV Files
+        if [ -d "csv_data" ] && [ "$(ls -A csv_data/)" ]; then
+          echo "### 📄 CSV Files Generated:" >> $GITHUB_STEP_SUMMARY
+          ls -lah csv_data/ | tail -n +2 | while read line; do
+            filename=$(echo "$line" | rev | cut -d' ' -f1 | rev)
+            size=$(echo "$line" | awk '{print $5}')
+            echo "- **$filename** ($size)" >> $GITHUB_STEP_SUMMARY
+          done
+        else
+          echo "### 📄 CSV Files: None generated" >> $GITHUB_STEP_SUMMARY
+        fi
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        # PDF Files
+        if [ -d "pdfs" ] && [ "$(ls -A pdfs/)" ]; then
+          echo "### 📋 PDF Files Downloaded:" >> $GITHUB_STEP_SUMMARY
+          ls -lah pdfs/ | tail -n +2 | while read line; do
+            filename=$(echo "$line" | rev | cut -d' ' -f1 | rev)
+            size=$(echo "$line" | awk '{print $5}')
+            echo "- **$filename** ($size)" >> $GITHUB_STEP_SUMMARY
+          done
+        else
+          echo "### 📋 PDF Files: None downloaded" >> $GITHUB_STEP_SUMMARY
+        fi
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        # Log Summary
+        if [ -d "logs" ] && [ "$(ls -A logs/)" ]; then
+          echo "### 📝 Latest Log Entries:" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -20 logs/*.log 2>/dev/null | tail -10 >> $GITHUB_STEP_SUMMARY || echo "No log entries found" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
         fi
         
-        if [ -d "pdfs" ]; then
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### PDF Files Downloaded:" >> $GITHUB_STEP_SUMMARY
-          ls -la pdfs/*.pdf 2>/dev/null | while read line; do
-            echo "- $line" >> $GITHUB_STEP_SUMMARY
-          done || echo "- No PDF files found" >> $GITHUB_STEP_SUMMARY
-        fi
-        
-    - name: Notify on failure
+    - name: Handle workflow failure
       if: failure()
       run: |
         echo "## ❌ Workflow Failed" >> $GITHUB_STEP_SUMMARY
-        echo "The Hindalco data download failed. Please check the logs." >> $GITHUB_STEP_SUMMARY
+        echo "The Hindalco data download encountered an error." >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Possible Issues:" >> $GITHUB_STEP_SUMMARY
+        echo "- PDF files may not be available for the requested dates" >> $GITHUB_STEP_SUMMARY
+        echo "- Network connectivity issues" >> $GITHUB_STEP_SUMMARY
+        echo "- Website structure changes" >> $GITHUB_STEP_SUMMARY
+        echo "- Java/PDF processing library issues" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Check the logs above for detailed error information." >> $GITHUB_STEP_SUMMARY
