@@ -100,12 +100,17 @@ def get_alternative_pdf_urls(date):
         suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(day % 10, 'th')
     
     alternatives = [
-        # Lowercase upload directory
+        # Different cases and paths
         f"https://www.hindalco.com/upload/pdf/primary-ready-reckoner-{day:02d}-{month_short}-{year}.pdf",
+        f"https://www.hindalco.com/Upload/Pdf/primary-ready-reckoner-{day:02d}-{month_short}-{year}.pdf",
         
         # With ordinal suffix
         f"https://www.hindalco.com/Upload/PDF/primary-ready-reckoner-{day}{suffix}-{month_short}-{year}.pdf",
         f"https://www.hindalco.com/upload/pdf/primary-ready-reckoner-{day}{suffix}-{month_short}-{year}.pdf",
+        
+        # Without zero padding
+        f"https://www.hindalco.com/Upload/PDF/primary-ready-reckoner-{day}-{month_short}-{year}.pdf",
+        f"https://www.hindalco.com/upload/pdf/primary-ready-reckoner-{day}-{month_short}-{year}.pdf",
         
         # Full month name
         f"https://www.hindalco.com/Upload/PDF/primary-ready-reckoner-{day:02d}-{month_full}-{year}.pdf",
@@ -118,6 +123,11 @@ def get_alternative_pdf_urls(date):
         # Different separators
         f"https://www.hindalco.com/Upload/PDF/primary-ready-reckoner-{day:02d}_{month_short}_{year}.pdf",
         f"https://www.hindalco.com/Upload/PDF/primary_ready_reckoner_{day:02d}_{month_short}_{year}.pdf",
+        
+        # Alternative naming patterns
+        f"https://www.hindalco.com/Upload/PDF/ready-reckoner-{day:02d}-{month_short}-{year}.pdf",
+        f"https://www.hindalco.com/Upload/PDF/primary-reckoner-{day:02d}-{month_short}-{year}.pdf",
+        f"https://www.hindalco.com/Upload/PDF/primary-rates-{day:02d}-{month_short}-{year}.pdf",
     ]
     
     return alternatives
@@ -126,19 +136,28 @@ def download_pdf(url, save_path, timeout=30):
     """Download PDF from URL with error handling."""
     try:
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept': 'application/pdf,application/octet-stream,*/*',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1'
         }
         
-        response = requests.get(url, headers=headers, timeout=timeout, stream=True)
+        response = requests.get(url, headers=headers, timeout=timeout, stream=True, allow_redirects=True)
         response.raise_for_status()
         
         # Check if response is actually a PDF
         content_type = response.headers.get('content-type', '').lower()
         if 'pdf' not in content_type and 'application/octet-stream' not in content_type:
-            return False
+            # Check the first few bytes for PDF signature
+            first_chunk = next(response.iter_content(chunk_size=1024), b'')
+            if not first_chunk.startswith(b'%PDF'):
+                return False
         
         # Save file
         with open(save_path, 'wb') as f:
+            f.write(first_chunk if 'first_chunk' in locals() else b'')
             for chunk in response.iter_content(chunk_size=8192):
                 f.write(chunk)
         
@@ -268,8 +287,8 @@ def process_date(date, logger):
     # Try to download PDF
     urls_to_try = [get_pdf_url(date)] + get_alternative_pdf_urls(date)
     
-    for url in urls_to_try:
-        logger.info(f"Trying URL: {url}")
+    for i, url in enumerate(urls_to_try):
+        logger.info(f"Trying URL {i+1}/{len(urls_to_try)}: {url}")
         if download_pdf(url, save_path):
             logger.info(f"Successfully downloaded: {url}")
             
@@ -279,6 +298,9 @@ def process_date(date, logger):
             return True
         else:
             logger.debug(f"Failed to download from: {url}")
+        
+        # Small delay between attempts
+        time.sleep(0.5)
     
     logger.warning(f"No PDF found for date: {date.strftime('%Y-%m-%d')}")
     
@@ -318,11 +340,13 @@ def main():
     
     logger.info(f"Processing dates from {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
     
-    # Generate list of dates to process
+    # Generate list of dates to process (skip weekends for business data)
     dates = []
     current_date = start_date
     while current_date <= end_date:
-        dates.append(current_date)
+        # Skip weekends (Saturday=5, Sunday=6)
+        if current_date.weekday() < 5:
+            dates.append(current_date)
         current_date += timedelta(days=1)
     
     successful_downloads = 0
@@ -333,11 +357,11 @@ def main():
             successful_downloads += 1
         
         # Small delay to be respectful to the server
-        time.sleep(1)
+        time.sleep(2)
     
     # Summary
     total_dates = len(dates)
-    success_rate = (successful_downloads / total_dates) * 100
+    success_rate = (successful_downloads / total_dates) * 100 if total_dates > 0 else 0
     
     logger.info(f"Processing complete!")
     logger.info(f"Total dates processed: {total_dates}")
@@ -348,7 +372,7 @@ def main():
     if os.getenv('GITHUB_ACTIONS'):
         print(f"::notice::Processed {total_dates} dates with {success_rate:.1f}% success rate")
     
-    return 0 if success_rate > 0 else 1
+    return 0 if success_rate > 0 or total_dates == 0 else 1
 
 if __name__ == "__main__":
     sys.exit(main())
