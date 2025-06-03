@@ -1,83 +1,110 @@
-name: Download Hindalco PDFs
+name: Hindalco PDF Downloader
 
 on:
   schedule:
-    # Run at 5:30 AM and 4:30 PM IST (converted to UTC)
-    # 5:30 AM IST = 12:00 AM UTC, 4:30 PM IST = 11:00 AM UTC
-    - cron: '0 0,11 * * *'
-  
-  # Enable manual trigger
+    # Run daily at 9:30 AM IST (4:00 AM UTC)
+    - cron: '0 4 * * *'
   workflow_dispatch:
-
-# Important: Add these permissions
-permissions:
-  contents: write
+    inputs:
+      download_historical:
+        description: 'Download historical data (days back)'
+        required: false
+        default: '0'
+        type: string
 
 jobs:
   download-and-process:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4  # Updated to v4
-        with:
-          fetch-depth: 0  # Fetch full history for better git operations
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
         
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'  # Updated to 3.11 for better compatibility
-          
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y openjdk-11-jre-headless
-          
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests pandas PyPDF2 tabula-py openpyxl
-          
-      - name: Create required directories
-        run: |
-          mkdir -p csv_data
-          mkdir -p pdf_downloads
-          
-      - name: Run download script
-        run: |
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pandas PyPDF2 tabula-py openpyxl
+        # Install Java for tabula-py
+        sudo apt-get update
+        sudo apt-get install -y default-jre
+        
+    - name: Create directories
+      run: |
+        mkdir -p pdfs
+        mkdir -p csv_data
+        
+    - name: Run PDF downloader
+      run: |
+        if [ -n "${{ github.event.inputs.download_historical }}" ] && [ "${{ github.event.inputs.download_historical }}" != "0" ]; then
+          echo "Running with historical download: ${{ github.event.inputs.download_historical }} days"
+          python main.py --historical-days ${{ github.event.inputs.download_historical }}
+        else
+          echo "Running daily download"
           python main.py
-        continue-on-error: true  # Continue even if script has minor errors
+        fi
         
-      - name: Check for changes
-        id: check_changes
-        run: |
-          git add .
-          if git diff --staged --quiet; then
-            echo "changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "changes=true" >> $GITHUB_OUTPUT
-          fi
-          
-      - name: Configure Git
-        if: steps.check_changes.outputs.changes == 'true'
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          
-      - name: Commit and push changes
-        if: steps.check_changes.outputs.changes == 'true'
-        run: |
-          git commit -m "Update Hindalco data - $(date +'%Y-%m-%d %H:%M UTC')"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Upload logs as artifact
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: hindalco-logs
-          path: |
-            hindalco_downloader.log
-            pdf_downloads/
-          retention-days: 7
+    - name: Check for new data
+      id: check_data
+      run: |
+        if [ -n "$(find csv_data -name '*.csv' -newer .git/FETCH_HEAD 2>/dev/null)" ]; then
+          echo "new_data=true" >> $GITHUB_OUTPUT
+        else
+          echo "new_data=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Upload CSV files
+      if: steps.check_data.outputs.new_data == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: hindalco-csv-data
+        path: csv_data/*.csv
+        retention-days: 30
+        
+    - name: Upload PDF files
+      if: steps.check_data.outputs.new_data == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: hindalco-pdf-files
+        path: pdfs/*.pdf
+        retention-days: 7
+        
+    - name: Commit and push changes
+      if: steps.check_data.outputs.new_data == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add csv_data/*.csv
+        git commit -m "Update Hindalco data - $(date +'%Y-%m-%d')" || exit 0
+        git push
+        
+    - name: Create summary
+      run: |
+        echo "## Hindalco Data Download Summary" >> $GITHUB_STEP_SUMMARY
+        echo "**Date:** $(date +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -d "csv_data" ]; then
+          echo "### CSV Files Generated:" >> $GITHUB_STEP_SUMMARY
+          ls -la csv_data/*.csv 2>/dev/null | while read line; do
+            echo "- $line" >> $GITHUB_STEP_SUMMARY
+          done || echo "- No CSV files found" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [ -d "pdfs" ]; then
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### PDF Files Downloaded:" >> $GITHUB_STEP_SUMMARY
+          ls -la pdfs/*.pdf 2>/dev/null | while read line; do
+            echo "- $line" >> $GITHUB_STEP_SUMMARY
+          done || echo "- No PDF files found" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+    - name: Notify on failure
+      if: failure()
+      run: |
+        echo "## ❌ Workflow Failed" >> $GITHUB_STEP_SUMMARY
+        echo "The Hindalco data download failed. Please check the logs." >> $GITHUB_STEP_SUMMARY
