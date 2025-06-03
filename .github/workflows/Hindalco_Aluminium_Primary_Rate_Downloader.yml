@@ -2,8 +2,9 @@ name: Download Hindalco PDFs
 
 on:
   schedule:
-    # Run at 5 PM and 10 PM UTC every day (adjust as needed for IST)
-    - cron: '0 11,16 * * *'  # 5 PM IST = 11:30 UTC, 10 PM IST = 16:30 UTC (approximated)
+    # Run at 5:30 AM and 4:30 PM IST (converted to UTC)
+    # 5:30 AM IST = 12:00 AM UTC, 4:30 PM IST = 11:00 AM UTC
+    - cron: '0 0,11 * * *'
   
   # Enable manual trigger
   workflow_dispatch:
@@ -18,30 +19,65 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Updated to v4
+        with:
+          fetch-depth: 0  # Fetch full history for better git operations
         
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'  # Updated to 3.11 for better compatibility
           
-      - name: Install dependencies
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openjdk-11-jre-headless
+          
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          # Install Java (required for tabula-py)
-          sudo apt-get update
-          sudo apt-get install -y openjdk-11-jre
-          pip install requests pandas tabula-py PyPDF2
+          pip install requests pandas PyPDF2 tabula-py openpyxl
+          
+      - name: Create required directories
+        run: |
+          mkdir -p csv_data
+          mkdir -p pdf_downloads
           
       - name: Run download script
-        run: python main_py.py
-        
-      - name: Configure Git
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          
-      - name: Commit and push changes
+          python main.py
+        continue-on-error: true  # Continue even if script has minor errors
+        
+      - name: Check for changes
+        id: check_changes
         run: |
           git add .
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Hindalco data $(date +'%Y-%m-%d %H:%M')" && git push)
+          if git diff --staged --quiet; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Configure Git
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git commit -m "Update Hindalco data - $(date +'%Y-%m-%d %H:%M UTC')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Upload logs as artifact
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: hindalco-logs
+          path: |
+            hindalco_downloader.log
+            pdf_downloads/
+          retention-days: 7
